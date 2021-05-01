@@ -1,0 +1,85 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "luxury",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#comment-line"
+		},
+		{
+			"include": "#storage"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.luxury",
+				"match": "\\b(if|else|in|while|for|return|func|asm|bit|cast| #size| #offset| #align)\\b"
+			} ]
+		},
+		"storage": {
+			"patterns": [{
+				"name": "storage.type.luxury",
+				"match": "\\b(u64|u32|u16|u8|s64|s32|s16|s8|bool|char|struct|enum|union)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.luxury",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.luxury",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "/\\*\\*(?!/)",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.luxury"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.documentation.luxury"
+				},
+				{
+					"begin": "//\\(",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.luxury"
+						}
+					},
+					"end": "//\\)",
+					"name": "comment.block.luxury"
+				},
+				{
+					"captures": {
+						"1": {
+							"name": "punctuation.definition.comment.luxury"
+						}
+					},
+					"match": "(//).*$\\n?",
+					"name": "comment.line.double-slash.luxury"
+				}
+			]
+		},
+		"comment-line": {
+			"name": "comment.line.luxury",
+			"begin": "//",
+			"end": "\n"
+		}
+	},
+	"scopeName": "source.lux"
+}

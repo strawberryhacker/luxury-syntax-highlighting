@@ -1,0 +1,25 @@
+{
+    "name": "luxury-language",
+    "displayName": "luxury-language",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "luxury",
+            "aliases": ["luxury", "luxury"],
+            "extensions": [".lux"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "luxury",
+            "scopeName": "source.lux",
+            "path": "./syntaxes/luxury.tmLanguage.json"
+        }]
+    }
+}
